@@ -1,0 +1,9 @@
+{% extends "@components/base/base.twig" %} {% set title = "01.0_homepage" %} {%
+block main %} {% include "@components/topstory-section/topstory-section.twig" %}
+<div class="bg-content">
+  {% include "@components/posts-section/posts-section.twig" %} {% include
+  "@components/hp-calendar/hp-calendar.twig" %} {% include
+  "@components/hp-federation/hp-federation.twig" %}
+</div>
+{% include "@components/partners-slider-section/partners-slider-section.twig" %}
+{% endblock %}
