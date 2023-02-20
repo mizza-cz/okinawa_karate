@@ -4,4 +4,38 @@
   &-pt {
     padding-top: 114px;
   }
+  &-menu {
+    padding: 24px;
+    box-shadow: 0px 1px 4px rgba(10, 11, 10, 0.102549);
+    background-color: var(--color-light);
+    margin-bottom: 40px;
+    ul {
+    }
+    li {
+      border-bottom: 1px solid var(--color-lines);
+      padding: 8px 0;
+      padding-left: 16px;
+      position: relative;
+      &:last-child {
+        border: none;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 14px;
+        width: 1px;
+        height: 8px;
+        background-color: var(--color-red);
+      }
+      a {
+        text-decoration-color: transparent;
+        transition: all 0.3s;
+        font-weight: 700;
+        &:hover {
+          text-decoration-color: inherit;
+        }
+      }
+    }
+  }
 }
