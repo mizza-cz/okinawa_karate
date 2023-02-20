@@ -1,0 +1,43 @@
+.fotoalbum-section {
+  &__fotogalerie {
+    &-hover {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: block;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 38px;
+      color: var(--color-light);
+      text-align: center;
+      transition: all 0.3s;
+      @include media-breakpoint-down(md) {
+        font-size: 24px;
+      }
+    }
+    opacity: 1;
+
+    &-link {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        background: RGBA(52, 58, 64, 0.7);
+      }
+    }
+    &-foto {
+      display: block;
+      aspect-ratio: 182/120;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

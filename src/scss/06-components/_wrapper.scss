@@ -1,0 +1,9 @@
+.wrapper {
+  padding: 32px 40px;
+  background-color: var(--color-light);
+  position: relative;
+  z-index: 5;
+  @include media-breakpoint-down(md) {
+    padding: 24px 16px;
+  }
+}
