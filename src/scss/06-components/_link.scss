@@ -1,6 +1,6 @@
 .link {
   display: block;
-  color: var(--color-light);
+  color: var(--color-light) !important;
   font-weight: 700;
   font-size: 18px;
   line-height: 120%;
@@ -8,9 +8,15 @@
   padding: 8px 24px;
   text-transform: uppercase;
   width: fit-content;
-  text-decoration-color: transparent;
+  text-decoration-color: transparent !important;
   transition: all 0.3s;
+  border: none;
+  outline: none;
+  border-radius: 3px;
   &:hover {
     background: rgba(#343a40, 0.8);
   }
+}
+button.link {
+  margin: 0;
 }
