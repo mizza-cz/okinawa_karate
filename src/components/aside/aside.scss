@@ -1,6 +1,12 @@
 .aside {
   position: relative;
   z-index: 10;
+  .post {
+    margin-bottom: 40px;
+    &__info {
+      background-color: transparent;
+    }
+  }
   &-pt {
     padding-top: 114px;
   }
