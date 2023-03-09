@@ -1,0 +1,28 @@
+.pagination {
+  margin-left: -4px;
+  margin-right: -4px;
+  display: flex;
+  flex-wrap: wrap;
+  li {
+    padding: 0 4px;
+    margin-bottom: 8px;
+  }
+
+  a {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .page-item.active .page-link {
+    background-color: var(--color-dark);
+    border-color: var(--color-dark);
+    color: var(--color-light);
+  }
+
+  .page-link {
+    color: var(--color-red);
+    border-radius: 4px !important;
+  }
+}
