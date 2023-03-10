@@ -1,7 +1,7 @@
 .detail-action {
   &__box {
     background-color: var(--color-grey);
-    padding: 16px 32px;
+    padding: 16px 32px 0px;
     margin-bottom: 24px;
   }
   &__place,
@@ -10,6 +10,7 @@
     padding-left: 40px;
     font-size: 18px;
     color: var(--color-light);
+    margin-bottom: 16px;
     &::before {
       content: "";
       position: absolute;
