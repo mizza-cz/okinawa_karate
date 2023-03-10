@@ -1,0 +1,34 @@
+.detail-action {
+  &__box {
+    background-color: var(--color-grey);
+    padding: 16px 32px;
+    margin-bottom: 24px;
+  }
+  &__place,
+  &__date {
+    position: relative;
+    padding-left: 40px;
+    font-size: 18px;
+    color: var(--color-light);
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: -2px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 24px;
+      height: 24px;
+    }
+  }
+  &__place {
+    &::before {
+      background-image: url("../images/ico/pin-drop.svg");
+    }
+  }
+  &__date {
+    &::before {
+      background-image: url("../images/ico/calendar-clock.svg");
+    }
+  }
+}

@@ -23,6 +23,7 @@
     display: flex;
     flex-wrap: wrap-reverse;
   }
+
   &__box {
     position: absolute;
     left: 0;
@@ -48,12 +49,6 @@
     }
   }
   &__img {
-    max-width: 74%;
-    flex: 74%;
-    width: 100%;
-    height: auto;
-    position: relative;
-    z-index: 0;
     @include media-breakpoint-down(xxl) {
       max-width: 100%;
       flex: 100%;
@@ -75,4 +70,12 @@
       object-fit: cover;
     }
   }
+}
+.c-topstory__slider {
+  max-width: 74%;
+  flex: 74%;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 0;
 }
