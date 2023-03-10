@@ -5,7 +5,7 @@ $(document).ready(function () {
       a = !0;
       var r = $(this).data("gallery"),
         s = $(this).data("start"),
-        t = "/json_data.php?data_type=photogallery&id=xxx" + r;
+        t = "/json_data.php?data_type=photogallery" + r;
       return (
         (1 != r && 2 != r && 3 != r) ||
           (t += "&id=" + $(this).data("gallery-id")),
