@@ -18,11 +18,10 @@
   }
   &__photo {
     width: 100%;
-    background: var(--color-light);
     padding: 24px;
     margin-top: 16px;
     height: 100%;
-    aspect-ratio: 705/402;
+    aspect-ratio: 705/502;
     @include media-breakpoint-down(lg) {
       width: 100%;
       height: auto;
@@ -38,6 +37,7 @@
   }
   &__row {
     padding-bottom: 40px;
+    align-items: center;
   }
 
   &__box {
@@ -48,7 +48,7 @@
     background-color: var(--color-light);
     height: fit-content;
     z-index: 1;
-    height: 100%;
+    height: auto;
     p {
       margin-bottom: 24px;
     }
