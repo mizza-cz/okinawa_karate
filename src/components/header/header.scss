@@ -134,6 +134,7 @@
   position: relative;
   &-nav {
     display: flex;
+    width: 100%;
     @include media-breakpoint-down(xl) {
       flex-direction: column !important;
       text-align: center;
@@ -268,7 +269,6 @@
   align-items: center;
   justify-content: center;
   padding-left: 17px;
-  width: 100%;
   text-align: right;
   justify-content: flex-end;
   @include media-breakpoint-down(xl) {

@@ -1,40 +1,47 @@
-$(document).ready(function () {
-  var a = !1;
-  $("a[data-gallery]").click(function () {
-    if (!a) {
-      a = !0;
-      var r = $(this).data("gallery"),
-        s = $(this).data("start"),
-        t = "/json_data.php?data_type=photogallery" + r;
-      return (
-        (1 != r && 2 != r && 3 != r) ||
-          (t += "&id=" + $(this).data("gallery-id")),
-        $.getJSON(t, {
-          format: "json",
-        })
-          .done(function (a) {
-            $(this).lightGallery({
-              hash: !1,
-              share: !1,
-              dynamic: !0,
-              dynamicEl: a,
-              index: s,
-              download: !1,
+document.addEventListener("DOMContentLoaded", function () {
+  var isRequestInProgress = false;
+  var galleryLinks = document.querySelectorAll("a[data-gallery]");
+
+  galleryLinks.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      if (!isRequestInProgress) {
+        isRequestInProgress = true;
+        var gallery = parseInt(this.dataset.gallery);
+        var start = this.dataset.start;
+        var url =
+          "/json_data.php?data_type=photogallery&id=" +
+          gallery +
+          "&format=json";
+
+        fetch(url)
+          .then(function (response) {
+            if (response.ok) {
+              return response.json();
+            } else {
+              throw new Error("Nastala chyba při načítání galerie.");
+            }
+          })
+          .then(function (data) {
+            lightGallery({
+              hash: false,
+              share: false,
+              dynamic: true,
+              dynamicEl: data,
+              index: start,
+              download: false,
               backdropDuration: 500,
             });
           })
-          .fail(function (a, r, t) {
-            alert(
-              "Nastala chyba při načítání galerie. Prosím zkuste to znovu."
-            ),
-              console.error("getJSON failed, status: " + r + ", error: " + t),
-              console.error(a);
+          .catch(function (error) {
+            alert(error.message);
+            console.error(error);
           })
-          .always(function () {
-            a = !1;
-          }),
-        !1
-      );
-    }
+          .finally(function () {
+            isRequestInProgress = false;
+          });
+
+        event.preventDefault();
+      }
+    });
   });
 });
