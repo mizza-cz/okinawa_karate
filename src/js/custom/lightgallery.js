@@ -1,47 +1,30 @@
-document.addEventListener("DOMContentLoaded", function () {
-  var isRequestInProgress = false;
-  var galleryLinks = document.querySelectorAll("a[data-gallery]");
-
-  galleryLinks.forEach(function (link) {
-    link.addEventListener("click", function (event) {
-      if (!isRequestInProgress) {
-        isRequestInProgress = true;
-        var gallery = parseInt(this.dataset.gallery);
-        var start = this.dataset.start;
-        var url =
-          "/json_data.php?data_type=photogallery&id=" +
-          gallery +
-          "&format=json";
-
-        fetch(url)
-          .then(function (response) {
-            if (response.ok) {
-              return response.json();
-            } else {
-              throw new Error("Nastala chyba při načítání galerie.");
-            }
-          })
-          .then(function (data) {
-            lightGallery({
-              hash: false,
-              share: false,
-              dynamic: true,
-              dynamicEl: data,
-              index: start,
-              download: false,
-              backdropDuration: 500,
-            });
-          })
-          .catch(function (error) {
-            alert(error.message);
-            console.error(error);
-          })
-          .finally(function () {
-            isRequestInProgress = false;
-          });
-
-        event.preventDefault();
-      }
+// Light Gallery
+$("#animated-thumbnail").lightGallery({
+  thumbnail: true,
+  getCaptionFromTitleOrAlt: true,
+  selector: "a[style]",
+});
+// Image Transition
+var scroll = "yes",
+  Fscroll = scroll.replace(/(\r\n|\n|\r)/gm, " ");
+"yes" === Fscroll &&
+  ($(document).ready(function () {
+    $("body").addClass("imgani");
+  }),
+  $(window).bind("load resize scroll", function () {
+    var o = $(this).height();
+    $("img").each(function () {
+      var s = 0.1 * $(this).height() - o + $(this).offset().top;
+      $(document).scrollTop() > s && $(this).addClass("anime");
     });
+  }));
+$(function () {
+  var hash = window.location.hash;
+  hash && $('ul.nav a[href="' + hash + '"]').tab("show");
+
+  $("body").on("click", ".nav-tabs a", function (e) {
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    $(this).tab("show");
   });
 });
