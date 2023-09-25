@@ -1,36 +1,9 @@
 .fotoalbum-section {
   &__fotogalerie {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -8px;
-    margin-right: -8px;
     figure {
-      display: none;
+      display: block;
       margin: 0;
-      margin-bottom: 16px;
-      padding: 0 8px;
-      max-width: 25%;
-      flex: 0 0 25%;
-      @include media-breakpoint-down(sm) {
-        max-width: 50%;
-        flex: 0 0 50%;
-      }
-      &:nth-child(-n + 7) {
-        display: block;
-      }
-      &:last-child {
-        display: block;
-        a::before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          display: block;
-          background: rgba(52, 58, 64, 0.7);
-        }
-      }
+      padding: 0;
     }
     a {
       position: relative;
@@ -62,4 +35,14 @@
       }
     }
   }
+}
+.fotoalbum-section__fotogalerie-link:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: rgba(52, 58, 64, 0.7);
 }
