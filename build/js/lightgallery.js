@@ -1,80 +1,42 @@
-// $(document).ready(function () {
-//   var a = !1;
-//   $("a[data-gallery]").click(function () {
-//     if (!a) {
-//       a = !0;
-//       var r = $(this).data("gallery"),
-//         s = $(this).data("start"),
-//         t = "/json_data.php?data_type=photogallery&id=" + r;
-//       return (
-//         (1 != r && 2 != r && 3 != r) ||
-//           (t += "&id=" + $(this).data("gallery-id")),
-//         $.getJSON(t, {
-//           format: "json",
-//         })
-//           .done(function (a) {
-//             $(this).lightGallery({
-//               hash: !1,
-//               share: !1,
-//               dynamic: !0,
-//               dynamicEl: a,
-//               index: s,
-//               download: !1,
-//               backdropDuration: 500,
-//             });
-//           })
-//           .fail(function (a, r, t) {
-//             alert(
-//               "Nastala chyba při načítání galerie. Prosím zkuste to znovu."
-//             ),
-//               console.error("getJSON failed, status: " + r + ", error: " + t),
-//               console.error(a);
-//           })
-//           .always(function () {
-//             a = !1;
-//           }),
-//         !1
-//       );
-//     }
-//   });
-// });
-
 $(document).ready(function () {
-  var a = !1;
-  $("a[data-gallery]").click(function () {
+  var a = false;
+
+  $("a[data-gallery]").click(function (e) {
+    e.preventDefault(); // Отменяем стандартное действие ссылки
+    var $this = $(this);
+    var galleryIndex = $this.data("gallery") - 1; // Устанавливаем индекс с учетом начала с 0
+    var t =
+      "/json_data.php?data_type=photogallery&id=" + $this.data("gallery-id");
+
+    console.log("Значение data-gallery: " + galleryIndex); // Выводим значение в консоль
+
     if (!a) {
-      a = !0;
-      var r = $(this).data("gallery-id"),
-        s = $(this).data("start"),
-        t = "/json_data.php?data_type=photogallery&id=" + r;
-      return (
-        (1 != r && 2 != r && 3 != r) || (t += "&id=" + $(this).data("gallery")),
-        $.getJSON(t, {
-          format: "json",
+      a = true;
+
+      $.getJSON(t, {
+        format: "json",
+      })
+        .done(function (data) {
+          $this.lightGallery({
+            hash: false,
+            share: false,
+            dynamic: true,
+            dynamicEl: data,
+            index: galleryIndex, // Используем установленный индекс
+            download: false,
+            backdropDuration: 500,
+          });
         })
-          .done(function (a) {
-            $(this).lightGallery({
-              hash: !1,
-              share: !1,
-              dynamic: !0,
-              dynamicEl: a,
-              index: s,
-              download: !1,
-              backdropDuration: 500,
-            });
-          })
-          .fail(function (a, r, t) {
-            alert(
-              "Nastala chyba při načítání galerie. Prosím zkuste to znovu."
-            ),
-              console.error("getJSON failed, status: " + r + ", error: " + t),
-              console.error(a);
-          })
-          .always(function () {
-            a = !1;
-          }),
-        !1
-      );
+        .fail(function (jqXHR, textStatus, errorThrown) {
+          alert("Nastala chyba při načítání galerie. Prosím zkuste to znовu.");
+          console.error(
+            "getJSON failed, status: " + textStatus + ", error: " + errorThrown
+          );
+          console.error(jqXHR);
+        })
+        .always(function () {
+          a = false;
+        });
     }
   });
 });
