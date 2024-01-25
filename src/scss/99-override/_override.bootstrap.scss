@@ -17,4 +17,28 @@
 .mb-10 {
   margin-bottom: 40px !important;
 }
+.gy-10 {
+  --bs-gutter-y: 40px;
+}
+.g-10 {
+  --bs-gutter-y: 40px;
+  --bs-gutter-x: 40px;
+}
+.g-5 {
+  --bs-gutter-y: 20px;
+  --bs-gutter-x: 20px;
+}
+.gy-5 {
+  --bs-gutter-y: 20px;
+}
+.g-6 {
+  --bs-gutter-y: 24px;
+  --bs-gutter-x: 24px;
+}
+.gy-6 {
+  --bs-gutter-y: 24px;
+}
+.gx-5 {
+  --bs-gutter-x: 20px;
+}
 /*! purgecss end ignore */
