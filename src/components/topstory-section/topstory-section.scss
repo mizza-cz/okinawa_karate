@@ -89,6 +89,7 @@
     width: 100%;
     p {
       margin-bottom: 24px;
+      text-align: justify;
     }
     @include media-breakpoint-down(xxl) {
       position: relative;
