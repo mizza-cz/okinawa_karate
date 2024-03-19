@@ -1,6 +1,5 @@
 .c-topstory-section {
   margin-bottom: 56px;
-
   @include media-breakpoint-down(xxl) {
     margin-bottom: 16px;
   }
@@ -15,6 +14,14 @@
         display: none;
       }
     }
+  }
+  .slick-slide.slick-active {
+    .c-topstory-section__img {
+      display: block !important;
+    }
+  }
+  .c-topstory-section__img:not(:first-child) {
+    display: none;
   }
   &__wrapper {
     display: flex;
@@ -67,13 +74,12 @@
   &__row {
     padding: 0 10px;
     margin: 0;
-
+    height: 100%;
     background: url("../images/content/bg.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100%;
-    height: 100%;
     display: flex;
   }
 
@@ -103,6 +109,9 @@
   }
   &__img {
     aspect-ratio: 1300/480;
+    width: 100%;
+    height: auto;
+    display: block;
     @include media-breakpoint-down(xxl) {
       &::before {
         content: "";
