@@ -3,4 +3,15 @@
     font-weight: 700;
     color: var(--color-dark);
   }
+  .header-section__form {
+    .link {
+      width: 100%;
+    }
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
 }

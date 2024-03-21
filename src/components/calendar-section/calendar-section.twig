@@ -4,49 +4,59 @@
       <div class="col-12">
         <div class="wrapper">
           <div class="o-content pb-5">
-            <h1>Kalendář akcí</h1>
+            <div
+              class="d-flex flex-wrap gap-3 justify-content-between align-items-center mb-4"
+            >
+              <h1 class="mb-0">Kalendář akcí</h1>
+              <div class="c-calendar-section__header">
+                <a href="#" class="link">Nadcházející akce</a>
+                <a href="#" class="link">Proběhlé akce</a>
+              </div>
+            </div>
             <div class="header-section__row">
-              <div class="row g-6">
-                <div class="col-lg-3 col-sm-6 col-12">
-                  <label class="o-select header-section__label">
-                    <select class="js-select">
-                      <option>Měsíc</option>
-                      <option>leden</option>
-                      <option>únor</option>
-                      <option>březen</option>
-                      <option>duben</option>
-                      <option>květen</option>
-                      <option>červen</option>
-                      <option>červenec</option>
-                      <option>srpen</option>
-                      <option>září</option>
-                      <option>říjen</option>
-                      <option>listopad</option>
-                      <option>prosinec</option>
-                    </select>
-                  </label>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-12">
-                  <label class="o-select header-section__label">
-                    <select class="js-select">
-                      <option>Kategorie</option>
-                      <option>Aktuální zprávy</option>
-                      <option>Rozhovory</option>
-                      <option>Reportáže</option>
-                      <option>Mládež</option>
-                      <option>Tiskové zprávy</option>
-                      <option>Soutěže a akce pro fanoušky</option>
-                      <option>Preview k zápasu</option>
-                      <option>Ohlasy po utkání</option>
-                      <option>Sledge – článek</option>
-                      <option>Sledge – reportáž</option>
-                      <option>Historie</option>
-                      <option>Fan Club</option>
-                    </select>
-                  </label>
-                </div>
-                <div class="col-12 col-lg-6">
-                  <form action="" class="header-section__form">
+              <form id="yourFormId" class="header-section__form">
+                <div class="row g-6">
+                  <div class="col-xl-4 col-md-6 col-12">
+                    <label class="header-section__label">
+                      <div class="header-section__date">
+                        od
+                        <input
+                          type="text"
+                          class="datepicker"
+                          readonly="readonly"
+                          placeholder="dd.mm.rrrr"
+                        />
+                        do
+                        <input
+                          type="text"
+                          class="datepicker"
+                          readonly="readonly"
+                          placeholder="dd.mm.rrrr"
+                        />
+                        {% include "@images/calendar.svg" %}
+                      </div>
+                    </label>
+                  </div>
+                  <div class="col-xl-3 col-md-6 col-12">
+                    <label class="o-select header-section__label">
+                      <select class="js-select">
+                        <option>Kategorie</option>
+                        <option>Aktuální zprávy</option>
+                        <option>Rozhovory</option>
+                        <option>Reportáže</option>
+                        <option>Mládež</option>
+                        <option>Tiskové zprávy</option>
+                        <option>Soutěže a akce pro fanoušky</option>
+                        <option>Preview k zápasu</option>
+                        <option>Ohlasy po utkání</option>
+                        <option>Sledge – článek</option>
+                        <option>Sledge – reportáž</option>
+                        <option>Historie</option>
+                        <option>Fan Club</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="col-12 col-xl-5">
                     <div class="row gy-6">
                       <div class="col-sm-8 col-12">
                         <label class="header-section__input">
@@ -60,36 +70,36 @@
                         <button class="link">Hledat</button>
                       </div>
                     </div>
-                  </form>
+                  </div>
                 </div>
-              </div>
+              </form>
             </div>
             <h2>Říjen 2022</h2>
             <table>
               <thead>
                 <tr>
                   <th>Datum</th>
+                  <th>Akce</th>
                   <th>Místo</th>
                   <th>Vede</th>
-                  <th>Akce</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td>4. 10. – 6. 10.</td>
-                  <td>Praha</td>
-                  <td>sensei Kenyu Chinen</td>
                   <td>
                     <a href="#">Mistrovství republiky v karate</a>
                   </td>
+                  <td>Praha</td>
+                  <td>sensei Kenyu Chinen</td>
                 </tr>
                 <tr>
                   <td>4. 10. – 6. 10.</td>
-                  <td>Praha</td>
-                  <td>sensei Kenyu Chinen</td>
                   <td>
                     <a href="#">Mistrovství republiky v karate</a>
                   </td>
+                  <td>Praha</td>
+                  <td>sensei Kenyu Chinen</td>
                 </tr>
               </tbody>
             </table>
